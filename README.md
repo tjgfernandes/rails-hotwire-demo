@@ -7,6 +7,8 @@ This rails app is used to demo/test hotwire components.
 
 * Ruby version: 3.2
 
+* Views in HAML or ERB
+
 * System dependencies: Docker/Docker compose: to start run docker-compose up
 
 * Database creation: Run rails db:create inside docker container rails-hotwire-demo_web_1
