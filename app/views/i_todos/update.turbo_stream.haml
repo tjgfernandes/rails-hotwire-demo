@@ -1,0 +1,7 @@
+
+= form_with(model: @i_todo) do |f|
+  = turbo_stream.remove dom_id(f.object)
+  - if f.object.done
+    = turbo_stream.append "i_todos_done", partial: "i_todos/row_form", locals: { f: f, form: "form" }
+  - else
+    = turbo_stream.append "i_todos_not_done", partial: "i_todos/row_form", locals: { f: f, form: "form" }

@@ -1,0 +1,8 @@
+= turbo_stream.append "forms" do 
+  = form_with(model: @i_todo, id: "form-#{dom_id(@i_todo)}") do |f|
+    - 
+
+= form_with(model: @i_todo) do |f|
+  = turbo_stream.append "i_todos_not_done", partial: "i_todos/row_form", locals: { f: f, form: 'form' }
+
+= turbo_stream.replace 'new_itodo', partial: 'i_todos/new_itodo_form'

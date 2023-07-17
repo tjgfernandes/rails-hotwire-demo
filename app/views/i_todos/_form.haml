@@ -1,0 +1,21 @@
+= form_with(model: i_todo) do |form|
+  - if i_todo.errors.any?
+    %div{style: "color: red"}
+      %h2
+        = pluralize(i_todo.errors.count, "error")
+        prohibited this i_todo from being saved:
+
+      %ul
+        - i_todo.errors.each do |error|
+          %li= error.full_message
+
+  %div
+    = form.label :title, style: "display: block"
+    = form.text_field :title
+
+  %div
+    = form.label :done, style: "display: block"
+    = form.check_box :done
+
+  %div
+    = form.submit

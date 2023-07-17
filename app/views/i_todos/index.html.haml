@@ -1,0 +1,32 @@
+%p{style: "color: green"}= notice
+
+%h1 iTodos
+
+- forms_not_done = []
+- forms_done = []
+= turbo_frame_tag "forms" do
+  - @i_todos.each do |t|
+    = form_with(model: t, id: "form-#{dom_id(t)}") do |f|
+      - if t.done
+        - forms_done << f
+      - else
+        - forms_not_done << f
+
+%table.table.table-striped
+  %tbody#i_todos_not_done{is: "turbo-frame"}
+    - forms_not_done.each do |f|
+      = render 'row_form', f: f, form: 'form'
+
+%br
+#new_itodo{is: "turbo-frame"}
+  = render 'new_itodo_form'
+
+
+%br
+
+%h2 Done
+
+%table.table.table-striped
+  %tbody#i_todos_done{is: "turbo-frame"}
+    - forms_done.each do |f|
+      = render 'row_form', f: f, form: 'form'

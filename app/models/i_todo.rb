@@ -1,0 +1,2 @@
+class ITodo < Todo  
+end

@@ -1,0 +1,6 @@
+%tr{ id: dom_id(f.object) }
+  %td= f.check_box :done, form: "#{form}-#{dom_id(f.object)}"
+  %td= f.text_field :title, form: "#{form}-#{dom_id(f.object)}"
+  %td
+    = f.submit "Save", form: "#{form}-#{dom_id(f.object)}"
+    = link_to "Destroy", f.object, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }
